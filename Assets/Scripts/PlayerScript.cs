@@ -62,10 +62,11 @@ public class PlayerScript : MonoBehaviour {
         	//no look around
         	mouseLook.enabled = false;
         	//if selected a building
+
         	//Toggle building = toggleConstructCallbacks.selectedButton;
         	//if(building != null){
         		//TODO: place a building on mouse left click
-        	//	Vector3 buildingPos = selectedAreaProj.transform.position;
+        	//Vector3 buildingPos = selectedAreaProj.transform.position;
         	return;
         }else{
         	//slide out

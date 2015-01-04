@@ -6,6 +6,8 @@ public class PlayerScript : MonoBehaviour {
 	public Vector3 velMagModifier;
 	private CharacterController cc;
  	public GameObject selectedArea; 
+ 	//Resources
+ 	
  	//UI
  	public GameObject inGameMenu;
  	public GameObject inGameMenuPanel;

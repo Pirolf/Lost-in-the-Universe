@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿﻿
+using UnityEngine;
 using System.Collections;
 
 public class TerrainTile{
@@ -8,6 +9,4 @@ public class TerrainTile{
 	public TerrainTile(){
 
 	}
-
-
 }

@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Robot : MonoBehaviour {
+public class Robot : Buyable{
 	public int type;
 	public int level;
 	public Terrain terrain;
-	public Cost cost; // TODO: change it to resources
-	public Cost operationCost;
-	
+	public Resource cost; // TODO: change it to resources
+	public Resource operationCost;
+
 	public static int upperLimit = int.MaxValue;
 	void Start () {
 	

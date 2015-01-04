@@ -1,13 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 [RequireComponent (typeof (CharacterController))]
+//[RequireComponent (typeof (Toggle))]
 
+//TODO: add a glider
 public class PlayerScript : MonoBehaviour {
 	public Vector3 velMagModifier;
 	private CharacterController cc;
  	public GameObject selectedArea; 
  	//Resources
- 	
+ 	public Resource resource;
  	//UI
  	public GameObject inGameMenu;
  	public GameObject inGameMenuPanel;
@@ -36,7 +38,11 @@ public class PlayerScript : MonoBehaviour {
 		selectedAreaProj.GetComponent<Projector>().enabled = false;
 		inGameMenu.GetComponent<Canvas>().enabled = false;
 		inGameMenuPanelAnim.enabled = false;
+
+		InitResource();
+
 		Time.timeScale = 1;
+
 	}
 	
 	void Update () {
@@ -65,7 +71,13 @@ public class PlayerScript : MonoBehaviour {
         	mouseLook.enabled = false;
         	//if selected a building
 
-        	//Toggle building = toggleConstructCallbacks.selectedButton;
+        	Toggle somethingToBuy = toggleConstructCallbacks.selectedButton;
+        	if(somethingToBuy != null){
+        		//are you sure
+        		if(Input.GetMouseButton(0)){
+
+        		}
+        	}
         	//if(building != null){
         		//TODO: place a building on mouse left click
         	//Vector3 buildingPos = selectedAreaProj.transform.position;
@@ -86,7 +98,12 @@ public class PlayerScript : MonoBehaviour {
 			selectedAreaProj.enabled = false;
 		}
 	}
-
+	void InitResource() {
+		resource.univen = 1500.0f;
+		resource.iron = 200.0f;
+		resource.copper = 100.0f;
+		resource.wood =  500.0f;
+	}
 	void RaycastScan() {
 		RaycastHit hit;
 

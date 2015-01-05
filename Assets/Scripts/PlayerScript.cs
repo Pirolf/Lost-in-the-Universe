@@ -14,7 +14,7 @@ public class PlayerScript : MonoBehaviour {
  	public GameObject inGameMenu;
  	public GameObject inGameMenuPanel;
 
-	private Vector3 rayHitPt;
+	public Vector3 rayHitPt;
 	private Camera firstPersonCam;
 	private bool scanPressed = false;
 	private bool markedBuildArea = false;
@@ -71,20 +71,19 @@ public class PlayerScript : MonoBehaviour {
         	mouseLook.enabled = false;
         	//if selected a building
 
-        	Toggle somethingToBuy = toggleConstructCallbacks.selectedButton;
-        	if(somethingToBuy != null){
+        	//Toggle somethingToBuy = toggleConstructCallbacks.selectedButton;
+        	//if(somethingToBuy != null){
         		//are you sure
-        		if(Input.GetMouseButton(0)){
+        	//	if(Input.GetMouseButton(0)){
 
-        		}
-        	}
+        	//	}
+        	//}
         	//if(building != null){
         		//TODO: place a building on mouse left click
         	//Vector3 buildingPos = selectedAreaProj.transform.position;
         	return;
         }else{
         	//slide out
-       		inGameMenuCanvas.enabled = false;
         	inGameMenuPanelAnim.Play("InGameMenuSlideOut");
         	mouseLook.enabled = true;
         	Time.timeScale = 1;
@@ -99,6 +98,7 @@ public class PlayerScript : MonoBehaviour {
 		}
 	}
 	void InitResource() {
+		resource = gameObject.AddComponent("Resource") as Resource;
 		resource.univen = 1500.0f;
 		resource.iron = 200.0f;
 		resource.copper = 100.0f;
@@ -110,7 +110,7 @@ public class PlayerScript : MonoBehaviour {
 		Ray rayPos = firstPersonCam.ScreenPointToRay(Input.mousePosition);
 		if (Physics.Raycast(rayPos, out hit, Mathf.Infinity ) ) {
 			GameObject hitObj = hit.collider.gameObject;
-			Debug.Log(hit.point);
+			//Debug.Log(hit.point);
 
 			selectedAreaProj.transform.position = hit.point + new Vector3(0,10,0);
 			

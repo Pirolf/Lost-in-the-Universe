@@ -1,7 +1,6 @@
-﻿﻿using UnityEngine;
+﻿﻿
+using UnityEngine;
 using System.Collections;
-//[RequireComponent (typeof (TerrainTile))]
-
 
 
 public class TerrainScript : MonoBehaviour {
@@ -13,6 +12,8 @@ public class TerrainScript : MonoBehaviour {
  	public Camera playerCam;
  	public GameObject selectedAreaProj; 
  	public TerrainTile[,] tiles;
+ 	//buildings
+ 	public BaseBuilding baseBuilding;
 
  	private Vector3 terrainSize;
  	private TerrainData terrain_Data;

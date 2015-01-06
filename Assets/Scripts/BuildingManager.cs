@@ -5,8 +5,10 @@ public class BuildingManager : MonoBehaviour {
 	//prefabs
 	public GameObject player;
 	public BaseBuilding baseBuildingPrefab;
+	public Refinery refineryPrefab;
 	public TerrainScript currentTerrain;
 	public PlayerScript playerScript;
+
 	void Start () {
 		currentTerrain = Terrain.activeTerrain.GetComponent<TerrainScript>();
 		playerScript = player.GetComponent<PlayerScript>();
@@ -24,11 +26,19 @@ public class BuildingManager : MonoBehaviour {
 		}
 		if(building is BaseBuilding){
 			currentTerrain.baseBuilding
-			 = Instantiate(baseBuildingPrefab, playerScript.rayHitPt, Quaternion.identity)
-			 as BaseBuilding;
-			 currentTerrain.baseBuilding.GetComponent<MeshRenderer>().enabled = true;
-			 Debug.Log("new base buildling at :" + currentTerrain.baseBuilding.transform.position);
+				= Instantiate(baseBuildingPrefab, playerScript.rayHitPt, Quaternion.identity)
+				as BaseBuilding;
+			currentTerrain.baseBuilding.Show(true);
+			Debug.Log("new base buildling at :" + currentTerrain.baseBuilding.transform.position);
+		}else if (building is Refinery){
+			Refinery refinery
+				= Instantiate(refineryPrefab, playerScript.rayHitPt, Quaternion.identity)
+				as Refinery;
+			currentTerrain.refineries.Add(refinery);
+			refinery.Show(true);
+			Debug.Log("Refinery created");
 		}
+
 		
 	}
 

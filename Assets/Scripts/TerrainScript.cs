@@ -1,7 +1,7 @@
 ﻿﻿
 using UnityEngine;
 using System.Collections;
-
+using System.Collections.Generic;
 
 public class TerrainScript : MonoBehaviour {
 	
@@ -14,6 +14,7 @@ public class TerrainScript : MonoBehaviour {
  	public TerrainTile[,] tiles;
  	//buildings
  	public BaseBuilding baseBuilding;
+ 	public List<Refinery> refineries;
 
  	private Vector3 terrainSize;
  	private TerrainData terrain_Data;
@@ -22,6 +23,9 @@ public class TerrainScript : MonoBehaviour {
  	private float tileLeng = 50.0f;
 
 	void Start () {
+		//init lists
+		refineries = new List<Refinery>();
+		
 		player = GameObject.FindWithTag("Player");
 		playerCam = GameObject.Find("FirstPersonCamera").gameObject.camera;
 		selectedAreaProj = GameObject.Find("SelectedAreaProjector").gameObject;
@@ -67,7 +71,6 @@ public class TerrainScript : MonoBehaviour {
 					Random.Range(center_X-tileLeng, center_X+tileLeng), 
 					Random.Range(center_Z-tileLeng, center_Z+tileLeng)
 					);
-				//Debug.Log(center_X + ", " + center_Z);
 				totalIron += AssignResources(perlinVal, altitude, ref hitPoint, ref tiles[i,j]);
 
 			}

@@ -6,7 +6,7 @@ public enum PlanetType{
 };
 
 public enum BuildingType{
-	Base, ResearchStation, GreenHouse, Observatory, Refinary, WaterTower
+	Base, ResearchStation, GreenHouse, Observatory, Refinery, WaterTower
 };
 
 public enum RobotType{

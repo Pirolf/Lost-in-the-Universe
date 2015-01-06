@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 06e260ff88d68bb40bc915b494cd2ee1
+guid: 71f4a66600f632d4ab2f3d44863ea044
 ModelImporter:
   serializedVersion: 16
   fileIDToRecycleName:
@@ -19,23 +19,23 @@ ModelImporter:
     100026: diesnohu
     100028: diespipe
     100030: diesplat
-    100032: //RootNode
-    100034: diespum2
-    100036: diespump
-    100038: diesrehu
-    100040: diesshus
-    100042: diessta1
-    100044: diesstt
-    100046: diestable
-    100048: diesTor2
-    100050: diesTor3
-    100052: diestowe
-    100054: diestube
-    100056: diesvert
-    100058: diesveta
-    100060: dieswall
-    100062: dieswast
-    100064: dieswind
+    100032: diespum2
+    100034: diespump
+    100036: diesrehu
+    100038: diesshus
+    100040: diessta1
+    100042: diesstt
+    100044: diestable
+    100046: diesTor2
+    100048: diesTor3
+    100050: diestowe
+    100052: diestube
+    100054: diesvert
+    100056: diesveta
+    100058: dieswall
+    100060: dieswast
+    100062: dieswind
+    100064: //RootNode
     400000: diescel1
     400002: diescel2
     400004: diescell
@@ -52,23 +52,23 @@ ModelImporter:
     400026: diesnohu
     400028: diespipe
     400030: diesplat
-    400032: //RootNode
-    400034: diespum2
-    400036: diespump
-    400038: diesrehu
-    400040: diesshus
-    400042: diessta1
-    400044: diesstt
-    400046: diestable
-    400048: diesTor2
-    400050: diesTor3
-    400052: diestowe
-    400054: diestube
-    400056: diesvert
-    400058: diesveta
-    400060: dieswall
-    400062: dieswast
-    400064: dieswind
+    400032: diespum2
+    400034: diespump
+    400036: diesrehu
+    400038: diesshus
+    400040: diessta1
+    400042: diesstt
+    400044: diestable
+    400046: diesTor2
+    400048: diesTor3
+    400050: diestowe
+    400052: diestube
+    400054: diesvert
+    400056: diesveta
+    400058: dieswall
+    400060: dieswast
+    400062: dieswind
+    400064: //RootNode
     2300000: diescel1
     2300002: diescel2
     2300004: diescell
@@ -133,38 +133,39 @@ ModelImporter:
     3300058: dieswall
     3300060: dieswast
     3300062: dieswind
-    4300000: diesplat
-    4300002: diesfloo
-    4300004: diescel2
-    4300006: diescel1
-    4300008: dieswast
-    4300010: diesrehu
-    4300012: diestube
-    4300014: diespump
-    4300016: diesent1
-    4300018: diesnohu
-    4300020: diesstt
-    4300022: diestowe
-    4300024: diessta1
-    4300026: diesflot
-    4300028: dieshara
-    4300030: diespipe
-    4300032: diesveta
-    4300034: diestable
-    4300036: diesentr
-    4300038: diesTor3
-    4300040: diesTor2
-    4300042: dieshor1
-    4300044: dieshor
-    4300046: diesvert
-    4300048: dieswind
-    4300050: dieshing
-    4300052: diespum2
-    4300054: diesshus
-    4300056: dieswall
-    4300058: diesknca
-    4300060: diescell
-    4300062: dieshar1
+    4300000: dieshar1
+    4300002: diescell
+    4300004: diesknca
+    4300006: dieswall
+    4300008: diesshus
+    4300010: diespum2
+    4300012: dieshing
+    4300014: dieswind
+    4300016: diesvert
+    4300018: dieshor
+    4300020: dieshor1
+    4300022: diesTor2
+    4300024: diesTor3
+    4300026: diesentr
+    4300028: diestable
+    4300030: diesveta
+    4300032: diespipe
+    4300034: dieshara
+    4300036: diesflot
+    4300038: diessta1
+    4300040: diestowe
+    4300042: diesstt
+    4300044: diesnohu
+    4300046: diesent1
+    4300048: diespump
+    4300050: diestube
+    4300052: diesrehu
+    4300054: dieswast
+    4300056: diescel1
+    4300058: diescel2
+    4300060: diesfloo
+    4300062: diesplat
+    7400000: Default Take
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -185,7 +186,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: .100000001
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1

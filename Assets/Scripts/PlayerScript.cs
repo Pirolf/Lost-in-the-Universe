@@ -70,18 +70,6 @@ public class PlayerScript : MonoBehaviour {
         	Time.timeScale = 0;
         	//no look around
         	mouseLook.enabled = false;
-        	//if selected a building
-
-        	//Toggle somethingToBuy = toggleConstructCallbacks.selectedButton;
-        	//if(somethingToBuy != null){
-        		//are you sure
-        	//	if(Input.GetMouseButton(0)){
-
-        	//	}
-        	//}
-        	//if(building != null){
-        		//TODO: place a building on mouse left click
-        	//Vector3 buildingPos = selectedAreaProj.transform.position;
         	return;
         }else{
         	//slide out
@@ -91,11 +79,13 @@ public class PlayerScript : MonoBehaviour {
         }
 
 		if(scanPressed){
-			selectedAreaProj.enabled = true;
+			mouseLook.enabled = true;
 			RaycastScan();
+			selectedAreaProj.enabled = true;
 			MapTile();
 		}else{
 			selectedAreaProj.enabled = false;
+			hasRayHitPt = false;
 		}
 	}
 	void InitResource() {

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class BaseBuilding : Building {
@@ -11,6 +12,7 @@ public class BaseBuilding : Building {
 		terrain = Terrain.activeTerrain;
 		type = (int)BuildingType.Base;
 		buildingName = "Base";
+		//toggleButton = GameObject.Find("Toggle_ResearchStation").GetComponent<Toggle>();
 	}	
 	// Update is called once per frame
 	void Update () {

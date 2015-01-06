@@ -1,19 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Buyable : MonoBehaviour {
-	//public int type;
-	public GameObject player;
+public class UnknownMatterDetector : MonoBehaviour {
+
+	// Use this for initialization
 	void Start () {
-		
+	
 	}
 	
 	// Update is called once per frame
 	void Update () {
 	
-	}
-
-	void Init(){
-
 	}
 }

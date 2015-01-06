@@ -1,33 +1,37 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
-//[RequireComponent (typeof (Toggle))]
 
 
 public class ToggleConstructCallbacks : MonoBehaviour {
+	public static Buyable itemToCheckOut;
+	public BuildingManager buildingManager;
 	public static Toggle selectedButton;
-
 	void Start () {
 
 	}
-	
-	public void OnToggle_ButtonConstruct(Toggle newSelectedButton){
-		Debug.Log(newSelectedButton.name + " is on: " + newSelectedButton.isOn);
-		if(newSelectedButton.isOn == false){
-			selectedButton = null;
-			return;
-		}
-		if(selectedButton == null){
-			selectedButton = newSelectedButton;
-			return;
-		}
-		selectedButton.isOn = false;
-		selectedButton = newSelectedButton;
-		Debug.Log("new selected button: " + selectedButton.name);
 
+	public void OnToggle_ButtonConstruct(Buyable newSelectedItem){
+		Toggle newBoundToggle = newSelectedItem.toggleButton;
+		Debug.Log(newBoundToggle.name + " is on: " + newBoundToggle.isOn);
+		//if this is just uncheck
+		if(newBoundToggle.isOn == false){
+			itemToCheckOut = null;
+			return;
+		}
+		//uncheck old item
+		if(itemToCheckOut != null){
+			itemToCheckOut.toggleButton.isOn = false;
+		}
+		itemToCheckOut = newSelectedItem;
+		//Debug.Log("new selected button: " + newBoundToggle.name);
+		if(itemToCheckOut is Building){
+			buildingManager.CreateBuilding((Building)itemToCheckOut);
+		}else if (itemToCheckOut is Robot){
+			//robotManager.CreateRobot((Robot)itemToCheckout);
+		}
 	}
 	
-	// Update is called once per frame
 	void Update () {
 	
 	}

@@ -19,6 +19,7 @@ public class PlayerScript : MonoBehaviour {
 	private bool scanPressed = false;
 	private bool markedBuildArea = false;
 	private bool inGameMenuActive = false;
+	public bool hasRayHitPt = false;
 	//components
 	private Animator inGameMenuPanelAnim;
 	private MouseLook mouseLook;
@@ -115,6 +116,9 @@ public class PlayerScript : MonoBehaviour {
 			selectedAreaProj.transform.position = hit.point + new Vector3(0,10,0);
 			
 			rayHitPt = hit.point;
+			hasRayHitPt = true;
+		}else{
+			hasRayHitPt = false;
 		}
  	}
 

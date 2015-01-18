@@ -1,17 +1,22 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.Reflection;
+using System;
 
 public class BaseBuilding : Building {
-	public static int upperLimit = 1;
+	public override void Awake(){
+		upperLimit = 1;
+	}
+
 	void Start(){
 		SetCost();
 		type = (int)BuildingType.Base;
 		buildingName = "Base";
+		
 	}	
-	// Update is called once per frame
-	void Update () {
 	
+	void Update () {
 	}
 
 	void SetCost(){

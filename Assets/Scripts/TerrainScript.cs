@@ -12,9 +12,6 @@ public class TerrainScript : MonoBehaviour {
  	public Camera playerCam;
  	public GameObject selectedAreaProj; 
  	public TerrainTile[,] tiles;
- 	//buildings
- 	public BaseBuilding baseBuilding;
- 	public List<Refinery> refineries;
 
  	private Vector3 terrainSize;
  	private TerrainData terrain_Data;
@@ -24,8 +21,8 @@ public class TerrainScript : MonoBehaviour {
 
 	void Start () {
 		//init lists
-		refineries = new List<Refinery>();
-		
+		//refineries = new List<Refinery>();
+
 		player = GameObject.FindWithTag("Player");
 		playerCam = GameObject.Find("FirstPersonCamera").gameObject.camera;
 		selectedAreaProj = GameObject.Find("SelectedAreaProjector").gameObject;

@@ -2,14 +2,16 @@
 using System.Collections;
 
 public class Refinery : Building {
-	// Use this for initialization
+	public override void Awake(){
+		base.Awake();
+	}
 	void Start () {
+		//base.Start();
 		SetCost();
 		type = (int)BuildingType.Refinery;
 		buildingName = "Refinery";
 	}
 	
-	// Update is called once per frame
 	void Update () {
 	
 	}

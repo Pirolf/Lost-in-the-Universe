@@ -8,7 +8,7 @@ public class Building : Buyable {
 	
 	public override void Awake(){
 		base.Awake();
-		Debug.Log("this is a building");
+		//Debug.Log("this is a building");
 	}
 
 	void Start () {

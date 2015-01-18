@@ -37,7 +37,6 @@ public class BuildingManager : MonoBehaviour {
 			refinery.transform.parent = currentTerrain.transform;
 			refinery.Show(true);
 			Debug.Log("Refinery created");
-			Canvas a;
 		}
 	}
 	void Update () {

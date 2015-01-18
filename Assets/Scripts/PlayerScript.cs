@@ -29,8 +29,6 @@ public class PlayerScript : MonoBehaviour {
 
 	void Start () {
 		//get components
-		int a = 3;
-		bool a = false;
 		cc = GetComponent<CharacterController>();
 		selectedAreaProj = selectedArea.GetComponent<Projector>();
 		inGameMenuPanelAnim = inGameMenuPanel.GetComponent<Animator>();

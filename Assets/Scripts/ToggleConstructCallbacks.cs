@@ -31,8 +31,7 @@ public class ToggleConstructCallbacks : MonoBehaviour {
 			//robotManager.CreateRobot((Robot)itemToCheckout);
 		}
 	}
-	
-	void Update () {
-	
+	public void TestBuildingClick(){
+		Debug.Log("building clicked");
 	}
 }

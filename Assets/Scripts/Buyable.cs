@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public abstract class Buyable : MonoBehaviour {
+public class Buyable : MonoBehaviour {
 	public GameObject player;
 	public Terrain terrain; // on which terrain
 
@@ -40,5 +40,5 @@ public abstract class Buyable : MonoBehaviour {
 		}
 	}
 
-	public abstract void ShowInfo();
+	public virtual void ShowInfo(){}
 }

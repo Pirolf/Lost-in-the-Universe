@@ -116,7 +116,7 @@ public class PlayerScript : MonoBehaviour {
 			if(hitObj.tag.Equals("Buyable"))
 			{
 				Debug.Log("hit buyable");
-				hitObj.GetComponent<Buyable>().ShowInfo();
+				//hitObj.GetComponent<Buyable>().ShowInfo();
 			}	
 		}
 		else

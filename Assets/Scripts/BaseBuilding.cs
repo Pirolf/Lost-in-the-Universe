@@ -21,9 +21,14 @@ public class BaseBuilding : Building {
 
 	void OnMouseDown(){
 		Debug.Log("on mouse down base");
+		ShowInfo();
 	}
 	void SetCost(){
 		cost = gameObject.AddComponent("Resource") as Resource;
 		cost.univen = 1000.0f;
 	}
+	public override void ShowInfo(){
+		Debug.Log("Im a base");
+	}
+
 }

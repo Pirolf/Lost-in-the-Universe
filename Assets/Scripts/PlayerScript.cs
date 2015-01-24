@@ -52,8 +52,6 @@ public class PlayerScript : MonoBehaviour {
 			ResumeGame();
 			return;
 		}
-
-		
 		if(Input.GetButtonDown("InGameMenu")){
 			Animator anim = uiRef.inGameMenuPanel.GetComponent<Animator>();
 			if(uiRef.inGameMenu.activeSelf){
@@ -62,6 +60,8 @@ public class PlayerScript : MonoBehaviour {
 				//yield uiRef.WaitForAnimation(anim);
 				//anim.Play("InGameMenuSlideOut");
 				uiRef.inGameMenu.SetActive(false);
+				//uncheck all toggles
+				ToggleConstructCallbacks.myCallbacks.ClearSelected();
 				ResumeGame();
 
 				return;

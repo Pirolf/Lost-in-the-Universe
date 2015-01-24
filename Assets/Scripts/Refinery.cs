@@ -19,4 +19,7 @@ public class Refinery : Building {
 	void SetCost(){
 
 	}
+	public override void CreateSelf(Vector3 spawnPosition){
+
+	}
 }

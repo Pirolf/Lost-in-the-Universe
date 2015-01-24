@@ -2,14 +2,13 @@
 using System.Collections;
 
 public class SharedVariables : MonoBehaviour {
-	
-	// Use this for initialization
+	//game states
+	public static bool GamePaused;
+	void Awake(){
+		GamePaused = false;
+	}
 	void Start () {
 	
 	}
 	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 }

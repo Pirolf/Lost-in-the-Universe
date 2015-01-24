@@ -19,10 +19,16 @@ public class Building : Buyable {
 	void Update () {
 
 	}
-	public override void ShowInfo(){
-		Debug.Log("I'm a building");
+	void OnMouseDown(){
+		ShowInfo();
 	}
+	public void PauseGame(){
 
+	}
+	public void ResumeGame(){
+		
+	}
+	public virtual void CreateSelf(Vector3 spawnPosition){}
 }
 
 

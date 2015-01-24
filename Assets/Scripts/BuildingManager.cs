@@ -2,15 +2,18 @@
 using System.Collections;
 
 public class BuildingManager : MonoBehaviour {
+	[HideInInspector]public static BuildingManager myBuildingManager;
 	//prefabs
 	public BaseBuilding baseBuildingPrefab;
 	public Refinery refineryPrefab;
-	
+	public UnknownMatterDetector detectorPrefab;
+
 	public GameObject player;
 	public TerrainScript currentTerrain;
 	public PlayerScript playerScript;
 
 	void Start () {
+		myBuildingManager = this;
 		currentTerrain = Terrain.activeTerrain.GetComponent<TerrainScript>();
 		playerScript = player.GetComponent<PlayerScript>();
 	}
@@ -37,6 +40,9 @@ public class BuildingManager : MonoBehaviour {
 			refinery.transform.parent = currentTerrain.transform;
 			refinery.Show(true);
 			Debug.Log("Refinery created");
+		}else if(building is UnknownMatterDetector){
+			building.CreateSelf(playerScript.rayHitPt);
+
 		}
 	}
 	void Update () {

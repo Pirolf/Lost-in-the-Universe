@@ -15,10 +15,21 @@ public class UnknownMatterDetector : Building {
 	
 	// Update is called once per frame
 	void Update () {
-	
 	}
 	public override void CreateSelf(Vector3 spawnPosition){
-		Debug.Log("detector");
+		Collider[] hitColliders = Physics.OverlapSphere(spawnPosition, 5.0f );
+		//not the best way to do collision detection
+		if (hitColliders.Length > 0) {
+		    //return;
+		    if(hitColliders.Length > 1){
+		    	Debug.Log("ouch ouch");
+		    	return;
+		    }
+		    if(hitColliders[0].gameObject == Terrain.activeTerrain){
+		    	Debug.Log("i ONLY hit terrain");
+		    }
+		}
+		//Debug.Log("detector");
 		BuildingManager bm = BuildingManager.myBuildingManager;
 		UnknownMatterDetector detector
 			= Instantiate(bm.detectorPrefab, spawnPosition, Quaternion.identity)

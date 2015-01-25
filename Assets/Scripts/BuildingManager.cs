@@ -41,7 +41,13 @@ public class BuildingManager : MonoBehaviour {
 			refinery.Show(true);
 			Debug.Log("Refinery created");
 		}else if(building is UnknownMatterDetector){
+			if(!ResourceManager.resourceManager.Affordable(ref building.cost)){
+				Debug.Log("you are too poor");
+				return;
+			}
+			ResourceManager.resourceManager.MinusResource(ref building.cost);
 			building.CreateSelf(playerScript.rayHitPt);
+
 
 		}
 	}

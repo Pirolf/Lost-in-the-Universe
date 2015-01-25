@@ -9,6 +9,9 @@ public class UIRef : MonoBehaviour {
 	public GameObject inGameMenu;
 	public GameObject entityActionCanvas;
 
+	//Resources
+	public GameObject galacticaYen;
+
 
 	public GameObject inGameMenuPanel;
 

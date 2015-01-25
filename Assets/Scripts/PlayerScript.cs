@@ -36,7 +36,6 @@ public class PlayerScript : MonoBehaviour {
 
 		selectedAreaProj.GetComponent<Projector>().enabled = false;
 
-		InitResource();
 		Time.timeScale = 1;
 	}
 	
@@ -90,9 +89,6 @@ public class PlayerScript : MonoBehaviour {
 		}else{
 			selectedAreaProj.enabled = false;
 			hasRayHitPt = false;
-			//if mouse position hits a building or a robot
-			//show building infomation and bring up a activity menu
-			//RaycastSelectThing();
 		}
 	}
 	public void PauseGame(){
@@ -104,33 +100,6 @@ public class PlayerScript : MonoBehaviour {
 		mouseLook.enabled = true;
         Time.timeScale = 1;
         SharedVariables.GamePaused = false;
-	}
-	void InitResource() {
-		resource = gameObject.AddComponent("Resource") as Resource;
-		resource.univen = 1500.0f;
-		resource.iron = 200.0f;
-		resource.copper = 100.0f;
-		resource.wood =  500.0f;
-	}
-
-	//raycast mouse input position, if hits a building or a robot, show info
-	void RaycastSelectThing(){
-		RaycastHit hit;
-		Ray rayPos = firstPersonCam.ScreenPointToRay(Input.mousePosition);
-		if (Physics.Raycast(rayPos, out hit, Mathf.Infinity )) 
-		{
-			//if hits a building or a robot
-			GameObject hitObj = hit.collider.gameObject;
-			if(hitObj.tag.Equals("Buyable"))
-			{
-				Debug.Log("hit buyable");
-				//hitObj.GetComponent<Buyable>().ShowInfo();
-			}	
-		}
-		else
-		{
-
-		}
 	}
 	void RaycastScan() {
 		RaycastHit hit;

@@ -17,11 +17,14 @@ public class Buyable : MonoBehaviour {
 	public static int globalUpperLimit = int.MaxValue; //in total
 
 	public virtual void Awake(){
+		cost = gameObject.AddComponent("Resource") as Resource;
+		operationCost = gameObject.AddComponent("Resource") as Resource;
 		Show(false);
 	}
 	void Start () {
 		player = GameObject.Find("First Person Controller");
 		terrain = Terrain.activeTerrain;
+		
 	}
 	
 	// Update is called once per frame

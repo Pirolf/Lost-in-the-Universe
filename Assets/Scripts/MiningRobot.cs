@@ -24,7 +24,7 @@ public class MiningRobot : Robot {
 	}
 
 	void SetCost(){
-		cost.univen = 20.0f;
-		operationCost.univen = 0.2f;
+//		cost.univen = 20.0f;
+//		operationCost.univen = 0.2f;
 	}
 }

@@ -5,8 +5,11 @@ public class UnknownMatterDetector : Building {
 	public GameObject actionPanel;
 
 	private UIRef uiRef;
-	void Awake(){
+	public override void Awake(){
+		base.Awake();
+		//cost = gameObject.AddComponent("Resource") as Resource;
 		uiRef = UIRef.myUIRef;
+		//InitCost();
 	}
 	// Use this for initialization
 	void Start () {
@@ -45,5 +48,9 @@ public class UnknownMatterDetector : Building {
 		actionPanel.SetActive(true);
 		//pause game
 		PlayerScript.player.PauseGame();
+	}
+
+	public void ResetCost(){
+		cost.galacticaYen = 400.0f;
 	}
 }

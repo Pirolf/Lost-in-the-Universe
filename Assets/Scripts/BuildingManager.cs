@@ -33,12 +33,15 @@ public class BuildingManager : MonoBehaviour {
 			baseBuilding.Show(true);
 			Debug.Log("new base buildling at :" + baseBuilding.transform.position);
 		}else if(building is Refinery){
+			
 			Refinery refinery
-				= Instantiate(refineryPrefab, playerScript.rayHitPt, Quaternion.identity)
+				= Instantiate(refineryPrefab, playerScript.rayHitPt, refineryPrefab.transform.rotation)
 				as Refinery;
 			refinery.gameObject.SetActive(true);
 			refinery.transform.parent = currentTerrain.transform;
 			refinery.Show(true);
+			
+			//building.CreateSelf(playerScript.rayHitPt);
 			Debug.Log("Refinery created");
 		}else if(building is UnknownMatterDetector){
 			if(!ResourceManager.resourceManager.Affordable(ref building.cost)){

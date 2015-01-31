@@ -5,13 +5,13 @@ using System.Collections.Generic;
 
 public class TerrainScript : MonoBehaviour {
 	
-	public Terrain t;
+	[HideInInspector]public Terrain t;
 	public Planet planet;
 	
  	public GameObject player;
  	public Camera playerCam;
  	public GameObject selectedAreaProj; 
- 	public TerrainTile[,] tiles;
+ 	[HideInInspector]public TerrainTile[,] tiles;
 
  	private Vector3 terrainSize;
  	private TerrainData terrain_Data;
@@ -19,15 +19,14 @@ public class TerrainScript : MonoBehaviour {
  	private int gridNum_Z;
  	private float tileLeng = 50.0f;
 
+
+ 	void Awake(){
+ 		terrain_Data = gameObject.GetComponent<TerrainCollider>().terrainData;
+		terrainSize = gameObject.GetComponent<TerrainCollider>().terrainData.size;
+ 	}
 	void Start () {
 		//init lists
 		//refineries = new List<Refinery>();
-
-		player = GameObject.FindWithTag("Player");
-		playerCam = GameObject.Find("FirstPersonCamera").gameObject.camera;
-		selectedAreaProj = GameObject.Find("SelectedAreaProjector").gameObject;
-		terrain_Data = gameObject.GetComponent<TerrainCollider>().terrainData;
-		terrainSize = gameObject.GetComponent<TerrainCollider>().terrainData.size;
 		if(planet == null)planet = new IronPlanet();
 		SliceTerrain();
 		DistributeResources();

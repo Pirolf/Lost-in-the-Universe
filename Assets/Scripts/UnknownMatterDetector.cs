@@ -32,12 +32,12 @@ public class UnknownMatterDetector : Building {
 		    	Debug.Log("i ONLY hit terrain");
 		    }
 		}
-		//Debug.Log("detector");
 		BuildingManager bm = BuildingManager.myBuildingManager;
 		UnknownMatterDetector detector
 			= Instantiate(bm.detectorPrefab, spawnPosition, Quaternion.identity)
 			as UnknownMatterDetector;
 		detector.gameObject.SetActive(true);
+		//is this necessary at all?
 		detector.transform.parent = bm.currentTerrain.transform;
 		detector.Show(true);
 		

@@ -24,7 +24,7 @@ public class PlayerScript : MonoBehaviour {
 
 	void Awake(){
 		player = this;
-		uiRef = UIRef.myUIRef;
+		
 	}
 	void Start () {
 		//get components
@@ -35,7 +35,7 @@ public class PlayerScript : MonoBehaviour {
 		firstPersonCam = GameObject.Find("FirstPersonCamera").gameObject.camera;
 
 		selectedAreaProj.GetComponent<Projector>().enabled = false;
-
+		uiRef = UIRef.myUIRef;
 		Time.timeScale = 1;
 	}
 	

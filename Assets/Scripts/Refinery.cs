@@ -34,8 +34,9 @@ public class Refinery : Building {
 		}
 		BuildingManager bm = BuildingManager.myBuildingManager;
 		Refinery rf
-			= Instantiate(bm.refineryPrefab, spawnPosition, Quaternion.identity)
+			= Instantiate(bm.refineryPrefab, spawnPosition, bm.refineryPrefab.transform.rotation)
 			as Refinery;
+		BuildingManager.Refinery_All.Add(rf);
 		rf.gameObject.SetActive(true);
 		//is this necessary at all?
 		rf.transform.parent = bm.currentTerrain.transform;

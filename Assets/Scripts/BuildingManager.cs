@@ -1,8 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class BuildingManager : MonoBehaviour {
 	[HideInInspector]public static BuildingManager myBuildingManager;
+	//list or hashmap of buildings?
+	[HideInInspector]public static List<UnknownMatterDetector> UMD_All;
+	[HideInInspector]public static List<Refinery> Refinery_All;
+	[HideInInspector]public static Building currentSelectedBuilding;
 	//prefabs
 	public BaseBuilding baseBuildingPrefab;
 	public Refinery refineryPrefab;
@@ -12,10 +17,17 @@ public class BuildingManager : MonoBehaviour {
 	public TerrainScript currentTerrain;
 	public PlayerScript playerScript;
 
+	void Awake(){
+		 UMD_All = new List<UnknownMatterDetector>();
+		 Refinery_All = new List<Refinery>();
+	}
 	void Start () {
 		myBuildingManager = this;
 		currentTerrain = Terrain.activeTerrain.GetComponent<TerrainScript>();
 		playerScript = player.GetComponent<PlayerScript>();
+	}
+	public void OnClickDestroy(){
+		Object.Destroy(currentSelectedBuilding.gameObject);
 	}
 	public void CreateBuilding(Building building){
 		//TODO: put a warning or something if there is no rayhitpt yet
@@ -33,15 +45,7 @@ public class BuildingManager : MonoBehaviour {
 			baseBuilding.Show(true);
 			Debug.Log("new base buildling at :" + baseBuilding.transform.position);
 		}else if(building is Refinery){
-			
-			Refinery refinery
-				= Instantiate(refineryPrefab, playerScript.rayHitPt, refineryPrefab.transform.rotation)
-				as Refinery;
-			refinery.gameObject.SetActive(true);
-			refinery.transform.parent = currentTerrain.transform;
-			refinery.Show(true);
-			
-			//building.CreateSelf(playerScript.rayHitPt);
+			building.CreateSelf(playerScript.rayHitPt);
 			Debug.Log("Refinery created");
 		}else if(building is UnknownMatterDetector){
 			if(!ResourceManager.resourceManager.Affordable(ref building.cost)){

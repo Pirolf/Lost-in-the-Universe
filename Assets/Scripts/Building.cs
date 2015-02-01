@@ -15,9 +15,10 @@ public class Building : Buyable {
 
 	}
 	void OnMouseDown(){
+		BuildingManager.currentSelectedBuilding = this;
 		ShowInfo();
 	}
-	
+
 	public virtual void CreateSelf(Vector3 spawnPosition){}
 }
 

@@ -120,6 +120,12 @@ public class PlayerScript : MonoBehaviour {
 
  	//find matching tile of the terrain and reveal resource info
  	void MapTile(){
-
+ 		if(hasRayHitPt){
+ 			int i = Mathf.FloorToInt(rayHitPt.x / TerrainScript.tileLeng);
+ 			int j = Mathf.FloorToInt(rayHitPt.z / TerrainScript.tileLeng);
+ 			//Debug.Log("hit: " + i + ", " + j);
+ 			
+ 			Debug.Log("iron:" + TerrainScript.myTerrain.tiles[i,j].GetComponent<TerrainTile>().iron);
+ 		}
  	}
 }

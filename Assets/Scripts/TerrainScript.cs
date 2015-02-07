@@ -4,29 +4,35 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class TerrainScript : MonoBehaviour {
-	
+	public static TerrainScript myTerrain;
+
 	[HideInInspector]public Terrain t;
 	public Planet planet;
-	
+	public GameObject tilePrefab;
+
  	public GameObject player;
  	public Camera playerCam;
  	public GameObject selectedAreaProj; 
- 	[HideInInspector]public TerrainTile[,] tiles;
+ 	public GameObject[,] tiles;
 
  	private Vector3 terrainSize;
  	private TerrainData terrain_Data;
  	private int gridNum_X;
  	private int gridNum_Z;
- 	private float tileLeng = 50.0f;
+ 	[HideInInspector]public static float tileLeng = 50.0f;
 
 
  	void Awake(){
  		terrain_Data = gameObject.GetComponent<TerrainCollider>().terrainData;
 		terrainSize = gameObject.GetComponent<TerrainCollider>().terrainData.size;
+
+		gridNum_X = (int)Mathf.Floor(terrainSize.x / tileLeng);
+		gridNum_Z = (int)Mathf.Floor(terrainSize.z / tileLeng);
+		tiles = new GameObject[gridNum_X,gridNum_Z];
+		myTerrain = this;
+		//Debug.Log(tiles.Length);
  	}
 	void Start () {
-		//init lists
-		//refineries = new List<Refinery>();
 		if(planet == null)planet = new IronPlanet();
 		SliceTerrain();
 		DistributeResources();
@@ -37,24 +43,30 @@ public class TerrainScript : MonoBehaviour {
 	}
 	//slice the terrain into square tiles
 	void SliceTerrain(){
-		gridNum_X = (int)Mathf.Ceil(terrainSize.x / tileLeng);
-		gridNum_Z = (int)Mathf.Ceil(terrainSize.z / tileLeng);
-		tiles = new TerrainTile[gridNum_X,gridNum_Z];
+		
+		
+		Vector3 spawnPos = new Vector3(0,0,0);
 
 		for(int i=0; i < gridNum_X; i++){
+			spawnPos.x = i*tileLeng+0.5f*tileLeng;
 			for(int j=0; j < gridNum_Z; j++){
-				tiles[i,j] = new TerrainTile();
+				spawnPos.z = j*tileLeng+0.5f*tileLeng;
+
+				GameObject terrainTile 
+					= Instantiate(tilePrefab, spawnPos ,Quaternion.identity)
+					as GameObject;
+				tiles[i,j] = terrainTile;
+				//Debug.Log(tiles[i,j]);
 			}
 		}
-		//Debug.Log("tile len: " + gridNum_X + ", " + tiles.Length);
 	}
 	void DistributeResources(){
 		int totalIron = 0;
 		for(int i=0; i < gridNum_X; i++){
 			for(int j=0;j < gridNum_Z;j++){
-				Vector3 tileCenter;
-				float center_X = (i * tileLeng + (i+1)*tileLeng) / 2;
-				float center_Z = (j * tileLeng + (j+1)*tileLeng) / 2;
+				
+				float center_X = tiles[i,j].transform.position.x;
+				float center_Z = tiles[i,j].transform.position.z;
 				//get altitude
 				Vector3 groundLevelPoint = new Vector3(center_X, 0, center_Z);
 				Vector3 up =  transform.TransformDirection(Vector3.up); 
@@ -76,15 +88,15 @@ public class TerrainScript : MonoBehaviour {
 	}
 
 	int AssignResources(float perlinVal, float altitude, 
-		ref Vector3 centerPt, ref TerrainTile tt){
-		tt.centroid = centerPt;
+		ref Vector3 centerPt, ref GameObject tt){
+
 		switch(planet.planetType){
 			case (int)PlanetType.Carbon:
 				break;
 			case (int)PlanetType.Iron:
 				//Iron
 				if(perlinVal > 0.7f){
-					tt.iron = 1;
+					tt.GetComponent<TerrainTile>().iron = Random.Range(1, 50);
 					return 1;
 				}
 				break;

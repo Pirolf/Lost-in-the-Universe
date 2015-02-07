@@ -1,13 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Refinery : Building {
 	public GameObject actionPanel;
 	private UIRef uiRef;
-	
+
+	public List<MiningRobot> miningRobots;
 	public override void Awake(){
 		base.Awake();
 		uiRef = UIRef.myUIRef;
+		miningRobots = new List<MiningRobot>();
 	}
 
 	void Start () {

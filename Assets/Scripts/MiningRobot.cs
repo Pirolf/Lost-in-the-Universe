@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class MiningRobot : Robot {
 	public Vector3 movingSpeed;
@@ -7,6 +8,8 @@ public class MiningRobot : Robot {
 	//Robot with specialty mines its specialty type faster
 	public int specializeInType = (int)ResourceType.DEFAULT;
 	public float miningRateMultiplier = 1.1f;
+
+	public Refinery ownerRefinery;
 
 	public override void Awake(){
 		base.Awake();

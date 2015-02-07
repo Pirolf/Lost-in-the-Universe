@@ -15,6 +15,7 @@ public class Building : Buyable {
 
 	}
 	void OnMouseDown(){
+		Debug.Log("CLICKED");
 		BuildingManager.currentSelectedBuilding = this;
 		ShowInfo();
 	}

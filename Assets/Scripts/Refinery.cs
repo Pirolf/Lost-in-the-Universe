@@ -2,9 +2,14 @@
 using System.Collections;
 
 public class Refinery : Building {
+	public GameObject actionPanel;
+	private UIRef uiRef;
+	
 	public override void Awake(){
 		base.Awake();
+		uiRef = UIRef.myUIRef;
 	}
+
 	void Start () {
 		//base.Start();
 		SetCost();
@@ -18,6 +23,13 @@ public class Refinery : Building {
 	//TODO
 	void SetCost(){
 
+	}
+	public override void ShowInfo(){
+		//enable entity action canvas
+		uiRef.entityActionCanvas.SetActive(true);
+		actionPanel.SetActive(true);
+		//pause game
+		PlayerScript.player.PauseGame();
 	}
 	public override void CreateSelf(Vector3 spawnPosition){
 		Collider[] hitColliders = Physics.OverlapSphere(spawnPosition, 5.0f );

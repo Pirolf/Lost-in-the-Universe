@@ -95,6 +95,8 @@ public class TerrainScript : MonoBehaviour {
 				break;
 			case (int)PlanetType.Iron:
 				//Iron
+				//normal: 0.7f
+				//debug: 0.2f
 				if(perlinVal > 0.7f){
 					tt.GetComponent<TerrainTile>().iron = Random.Range(1, 50);
 					return 1;

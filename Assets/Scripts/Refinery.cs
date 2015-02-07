@@ -7,6 +7,16 @@ public class Refinery : Building {
 	private UIRef uiRef;
 
 	public List<MiningRobot> miningRobots;
+
+	private int _tileIdx_x;
+	private int _tileIdx_z;
+
+	public int tileIdx_x{
+		get{return _tileIdx_x;}
+	}
+	public int tileIdx_z{
+		get{return _tileIdx_z;}
+	}
 	public override void Awake(){
 		base.Awake();
 		uiRef = UIRef.myUIRef;
@@ -55,6 +65,11 @@ public class Refinery : Building {
 		rf.gameObject.SetActive(true);
 		//is this necessary at all?
 		rf.transform.parent = bm.currentTerrain.transform;
+		MapTile();
 		rf.Show(true);
+	}
+	public void MapTile(){
+		_tileIdx_x = Mathf.FloorToInt(gameObject.transform.position.x / TerrainScript.tileLeng);
+ 		_tileIdx_z = Mathf.FloorToInt(gameObject.transform.position.z / TerrainScript.tileLeng);
 	}
 }

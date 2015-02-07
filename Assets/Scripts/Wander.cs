@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
  
 /// <summary>
 /// Creates wandering behaviour for a CharacterController.
@@ -56,4 +57,6 @@ public class Wander : MonoBehaviour
 		heading = Random.Range(floor, ceil);
 		targetRotation = new Vector3(0, heading, 0);
 	}
+
+	
 }
